@@ -1,20 +1,24 @@
 // Stabilire il numero delle griglie
-const easyBox = 100;
-const mediumBox = 81;
-const hardBox = 49;
 
-// Generare griglie partendo da easyBox
+/* const easyBox = 100;
+const mediumBox = 81;         // <<< prove
+const hardBox = 49; */ 
 
-const numberOfSquares = 64;
-const numbers = generateRandomNumbersArray(numberOfSquares);
+const difficulty = document.getElementById("mode-selector");
+const start = document.getElementById("start");
 
-const grid = document.querySelector(".grid");
-for (let i = 0; i < numbers.length; i++) {
-    const currentNumber = numbers[i];
-    const newItem = generateGridItem(currentNumber);
-    newItem.addEventListener("click", handleItemClick)
-    grid.append(newItem);
-}
+// Selezionare tipologia di griglia desiderata
+start.addEventListener("click", function({
+    const mode = difficulty.value;
+    const gridsTotNumbers = 
+    const numbers = progressiveNumbersArray(numbersOfGrids);
+    grid.innerHTML = "";
+    for (let i = 0; i < )
+}))
+
+
+// Generare griglie a seconda della modalità selezionata
+
 
 // FUNZIONI
 
