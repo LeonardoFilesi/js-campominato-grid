@@ -27,7 +27,6 @@ function gridGenerated(numberSquares) {
         currentElement.innerText = i; // inserisco il numero nella casella
         currentElement.addEventListener("click", itemClick); 
         grid.appendChild(currentElement); // aggiungo questo elemento alla griglia
-
     }
     return currentElement;
 }
