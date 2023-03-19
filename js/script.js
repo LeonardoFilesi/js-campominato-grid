@@ -56,7 +56,7 @@ start.addEventListener('click', function() {
     console.log(mode);
     const numberSquares = regulationGrid(mode); //richiamo funzione per dare il numero di elementi della grid
     console.log(numberSquares);
-    const lastNumberGrid = generateGrid(numberSquares); 
+    const lastNumberGrid = generatedGrid(numberSquares); 
     grid.append(lastNumberGrid);  
     console.log(lastNumberGrid);     
 });
