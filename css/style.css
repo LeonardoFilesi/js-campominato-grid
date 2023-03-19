@@ -34,16 +34,21 @@ body {
     flex-wrap: wrap;
 }
 
-.grid-easy {
+.grid-element {
+    width: calc(100% / 10);
+    height:calc(100% / 10) ;
+    border: 1px solid white;
+    color: rgb(144, 49, 131);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2.5rem;
-    width: calc(630px / 10);
-    height: calc(630px / 10);
-    border: 2px solid white;
 }
 
-.green {
-    background-color: green;
+.click {
+    background-color: blue;
+}
+
+footer {
+    background-color: rgb(33, 33, 33);
 }

@@ -1,41 +1,62 @@
-// Stabilire il numero delle griglie
+/////////////////////CAMPO MINATO//////////////////////////
 
-/* const easyBox = 100;
-const mediumBox = 81;         // <<< prove
-const hardBox = 49; */ 
+// DICHIARO le variabili globali:
+// Griglia
+const grid = document.getElementById(".grid");
+// Modalità di gioco selezionata (da cui dipende numero di quadratini)
+let difficulty = document.getElementById("mode-selector");
+// Bottone che caricherà la griglia, qualsiasi essa sia
+const start = document.getElementById("start"); 
+// Numero dei riquadri, parto da zero, saranno 49, 81 e 100
+let numberSquares = 0;
+// Griglia già generata o meno
+/* let gridGenerated = false; */
 
-const difficulty = document.getElementById("mode-selector");
-const start = document.getElementById("start");
+console.log(difficulty.value);
 
-// Selezionare tipologia di griglia desiderata
-start.addEventListener("click", function({
-    const mode = difficulty.value;
-    const gridsTotNumbers = 
-    const numbers = progressiveNumbersArray(numbersOfGrids);
+// FUNZIONI:
+
+// Questa funzione crea gli elementi all'interno della griglia:
+function gridGenerated(numberSquares) {
+    let currentElement ="";
+    let lastClass = difficulty.value; // inserisco difficoltà scelta
     grid.innerHTML = "";
-    for (let i = 0; i < )
-}))
+    for (let i = 1; i <= numberSquares; i++) {
+        currentElement = document.createElement("div"); // creo un div nel DOM
+        currentElement.classList.add("grid-element", lastClass) // gli aggiungo le classi che mi interessano
+        currentElement.innerText = i; // inserisco il numero nella casella
+        currentElement.addEventListener("click", intemClick); 
+        grid.appendChild(currentElement); // aggiungo questo elemento alla griglia
 
-
-// Generare griglie a seconda della modalità selezionata
-
-
-// FUNZIONI
-
-// Generare numeri nelle singole caselle
-
-function get100Numbers() {
-    for (let i = 0; i <= 100; i++) {
-        console.log(i);
     }
+    return currentElement;
 }
 
-
-// Generare le singole caselle
-
-function generateNewBox(testo) {
-    const newBox = document.createElement("div");
-    newBox.classList.add("grid-element");
-    newBox.innerHTML = `${testo}`;
-    return newBox;
+// Questa funzione fa cambiare quanto la griglia è grande in base alla scelta della difficoltà
+function regulationGrid (modeUser) {
+    if (modeUser === "easy"){
+        numberSquares = 100;
+    } else if (modeUser === "medium"){
+        numberSquares = 81;
+    } else if (modeUser === "hard"){
+        numberSquares = 49;
+    }
+    return numberSquares;
 }
+
+// Questa funzione fa cambiar colore alla casella con un click
+function itemClick() {
+    console.log(this.innerText);    
+    this.classList.add("click-blu");    
+}
+
+// Questa funzione 
+start.addEventListener('click', function() {
+    const mode = difficulty.value; // modalita scelta dal menu a tendina
+    console.log(mode);
+    const numberSquares = regulationGrid(mode); //richiamo funzione per dare il numero di elementi della grid
+    console.log(numberSquares);
+    const lastNumberGrid = generateGrid(numberSquares); 
+    grid.append(lastNumberGrid);  
+    console.log(lastNumberGrid);     
+});
